@@ -1,7 +1,8 @@
 import random
 import time
-from task1 import decorator0, blockPrint
-from inspect import signature, getsource
+from inspect import getsource, signature
+
+from task1 import blockPrint, decorator0
 
 
 class decorator21:
@@ -19,9 +20,14 @@ class decorator21:
             countcall[self.func.__name__] += 1
         else:
             countcall[self.func.__name__] = 1
-        with open("_output.txt", 'a') as file:
-            file.write('Function {} call, {} : time: {}, ms\n'.format(self.func.__name__, countcall[self.func.__name__],
-                                                                      (timefinish - timestart) * 1000))
+        with open("_output.txt", "a") as file:
+            file.write(
+                "Function {} call, {} : time: {}, ms\n".format(
+                    self.func.__name__,
+                    countcall[self.func.__name__],
+                    (timefinish - timestart) * 1000,
+                )
+            )
         return result
 
 
@@ -31,18 +37,18 @@ class decorator22:
 
     def __call__(self, *args, **kwargs):
         result = decorator0(self.func)(*args, **kwargs)
-        with open("_output.txt", 'a') as file:
-            file.write('Name: {}\n'.format(self.func.__name__))
-            file.write('Type: {}\n'.format(str(type(self.func))))
-            file.write('Sign: {}\n'.format(str(signature(self.func))))
-            file.write('Args: {} positional\n'.format(str(args)))
-            file.write('Args: {} keyworded\n'.format(str(kwargs)))
-            file.write('\n')
-            file.write('Doc: {}\n'.format(self.func.__doc__))
-            file.write('\n')
-            file.write('Source: {}\n'.format(getsource(self.func)))
-            file.write('\n')
-            file.write('Output: \n')
+        with open("_output.txt", "a") as file:
+            file.write("Name: {}\n".format(self.func.__name__))
+            file.write("Type: {}\n".format(str(type(self.func))))
+            file.write("Sign: {}\n".format(str(signature(self.func))))
+            file.write("Args: {} positional\n".format(str(args)))
+            file.write("Args: {} keyworded\n".format(str(kwargs)))
+            file.write("\n")
+            file.write("Doc: {}\n".format(self.func.__doc__))
+            file.write("\n")
+            file.write("Source: {}\n".format(getsource(self.func)))
+            file.write("\n")
+            file.write("Output: \n")
             file.write(str(self.func(*args)))
         return result
 
@@ -62,6 +68,7 @@ def fun3():
 
 def fun4():
     time.sleep(random.uniform(0.0, 0.1))
+
 
 def ranking(*args):
     rank = {}

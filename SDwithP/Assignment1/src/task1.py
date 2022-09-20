@@ -5,7 +5,7 @@ import time
 
 
 def blockPrint(func, *args, **kwargs):
-    sys.stdout = open(os.devnull, 'w')  # blocking print
+    sys.stdout = open(os.devnull, "w")  # blocking print
     result = func(*args, **kwargs)
     time.sleep(random.uniform(0.0, 0.1))  # just to be clear that all correct
     sys.stdout = sys.__stdout__  # unblock printing
@@ -23,8 +23,15 @@ def decorator0(func):
             countcall[func.__name__] += 1
         else:
             countcall[func.__name__] = 1
-        print('Function', func.__name__, 'call', countcall[func.__name__], ': time:', (timefinish - timestart) * 1000,
-              'ms')
+        print(
+            "Function",
+            func.__name__,
+            "call",
+            countcall[func.__name__],
+            ": time:",
+            (timefinish - timestart) * 1000,
+            "ms",
+        )
         return result
 
     return timed

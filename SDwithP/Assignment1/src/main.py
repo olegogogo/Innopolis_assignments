@@ -1,8 +1,9 @@
+from math import sqrt
+
 from task1 import decorator0
 from task2 import decorator1
 from task3 import decorator21, decorator22, fun1, fun2, fun3, fun4, ranking
-from task4 import decorator_fun_error, decorator_class_error
-from math import sqrt
+from task4 import decorator_class_error, decorator_fun_error
 
 
 @decorator21  # calculate execution time and print in _output.txt file
@@ -48,14 +49,16 @@ def funh(bar1, bar2=""):
 
 
 @decorator_fun_error
-def error(a='hello', b=2):  # for task 4
+def error(a="hello", b=2):  # for task 4
     return a + b
 
+
 @decorator_class_error
-def error2(a='bye', b=5):
+def error2(a="bye", b=5):
     return a - b
 
-print('Task 1:')
+
+print("Task 1:")
 pascal()
 quad()
 pascal()
@@ -63,18 +66,18 @@ quad()
 pascal()
 print()
 
-print('Task 2:')
+print("Task 2:")
 funh(None, bar2="")
 print()
 
-print('Task 3:')
+print("Task 3:")
 mul_num([1, 2, 3])
 inc_num([1, 2, 3])
 print()
 ranking(fun1, fun2, fun3, fun4)
 print()
 
-print('Task 4:')
-print('There are an errors!')
+print("Task 4:")
+print("There are an errors!")
 error()
 error2()

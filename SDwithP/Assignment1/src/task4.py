@@ -1,8 +1,10 @@
 import datetime
 import time
 import traceback
-from inspect import signature, getsource
+from inspect import getsource, signature
+
 from task1 import blockPrint
+
 
 def decorator_fun_error(func):
     countcall = dict()
@@ -16,14 +18,25 @@ def decorator_fun_error(func):
                 countcall[func.__name__] += 1
             else:
                 countcall[func.__name__] = 1
-            print('Function', func.__name__, 'call', countcall[func.__name__], ': time:', (timefinish - timestart) * 1000,
-                  'ms')
+            print(
+                "Function",
+                func.__name__,
+                "call",
+                countcall[func.__name__],
+                ": time:",
+                (timefinish - timestart) * 1000,
+                "ms",
+            )
             return result
         except Exception as err:
-            with open('exeptions.log', 'a') as file:
-                file.write('Exeption happened at {}\n'.format(str(datetime.datetime.now())))
-                file.write('{}\n'.format(traceback.format_exc()))
+            with open("exeptions.log", "a") as file:
+                file.write(
+                    "Exeption happened at {}\n".format(str(datetime.datetime.now()))
+                )
+                file.write("{}\n".format(traceback.format_exc()))
+
     return timed
+
 
 class decorator_class_error:
     global countcall
@@ -41,11 +54,18 @@ class decorator_class_error:
                 countcall[self.func.__name__] += 1
             else:
                 countcall[self.func.__name__] = 1
-            with open("_output.txt", 'a') as file:
-                file.write('Function {} call, {} : time: {}, ms\n'.format(self.func.__name__, countcall[self.func.__name__],
-                                                                          (timefinish - timestart) * 1000))
+            with open("_output.txt", "a") as file:
+                file.write(
+                    "Function {} call, {} : time: {}, ms\n".format(
+                        self.func.__name__,
+                        countcall[self.func.__name__],
+                        (timefinish - timestart) * 1000,
+                    )
+                )
             return result
         except Exception as err:
-            with open('exeptions.log', 'a') as file:
-                file.write('Exeption happened at {}\n'.format(str(datetime.datetime.now())))
-                file.write('{}\n'.format(traceback.format_exc()))
+            with open("exeptions.log", "a") as file:
+                file.write(
+                    "Exeption happened at {}\n".format(str(datetime.datetime.now()))
+                )
+                file.write("{}\n".format(traceback.format_exc()))
