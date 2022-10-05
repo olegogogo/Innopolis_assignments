@@ -5,3 +5,5 @@ This directory contains the following files:
 3. functions.py - file that contains functions that make Classification.ipynb file smaller and more readable 
 4. Report.pdf - report, where task implementations are presented
 5. ML_AS1.pdf - file with tasks
+
+To execute code in Classification.ipynb and Regression.ipynb files put bitrate_prediction and stream_quality_data folders in project main derectory.
